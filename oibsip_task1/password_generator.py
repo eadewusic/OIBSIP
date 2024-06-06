@@ -2,11 +2,11 @@ import random
 import string
 
 def generate_password(minimum_length, numbers=True, special_characters=True):
-    letters = string.ascii_letters
-    digits = string.digits
+    letters = string.ascii_letters #contains all lowercase and uppercase letters
+    digits = string.digits #contains 0-9 as digit characters in form of string and not actual numerical value which why we can concatenate
     special_chars = string.punctuation
 
-    characters = letters
+    characters = letters #created the variable 'characters' that holds the string from another variable 'letters' which contains all the different characters we could be selecting from (('cus we've added other characters - digits & special_chars through string concatenation. So, characters includes more characters now)
     if numbers:
         characters += digits
     if special_characters:
