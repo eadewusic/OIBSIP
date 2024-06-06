@@ -60,7 +60,7 @@ Generated password: B6cD3aF9bH2g
 - **Imports:**
 
   - `random`: For generating random characters.
-  - `string`: For accessing different character sets.
+  - `string`: For accessing different character sets like lower and uppercase letters, numbers or digits or special characters.
 
 - **Functions:**
   - `get_user_input()`: Prompts the user for password length and character types.
