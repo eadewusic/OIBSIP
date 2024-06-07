@@ -34,8 +34,20 @@ def generate_password(minimum_length, numbers=True, special_characters=True):
 
     return password #immediately returns password when the while loop conditions are false like it meets criteria and minimum password length is correct
 
-minimum_length = int(input ("Enter the minimum length: "))
+while True:
+    try:
+        minimum_length = int(input("Enter the minimum length: "))
+        if minimum_length > 0:
+            break  # Exit the loop if valid input is received
+        else:
+            print("Minimum length must be greater than 0.")
+    except ValueError:
+        print("Invalid input. Please enter a number for minimum length.")
+
+# minimum_length = int(input ("Enter the minimum length: "))
 has_number = input ("Do you want to have numbers? (y/n): ").lower() == "y"
 has_special_chars = input ("Do you want to have special characters? (y/n): ").lower() == "y"
+
+# Call the function with user-provided values
 password = generate_password(minimum_length, has_number, has_special_chars)
 print("The generated password is:", password)
