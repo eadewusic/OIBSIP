@@ -1,5 +1,6 @@
 import random
 import string
+import sys # to use the sys.exit() function to exit the program - for user experience
 
 def generate_password(minimum_length, numbers=True, special_characters=True):
     letters = string.ascii_letters #contains all lowercase and uppercase letters
@@ -35,8 +36,12 @@ def generate_password(minimum_length, numbers=True, special_characters=True):
     return password #immediately returns password when the while loop conditions are false like it meets criteria and minimum password length is correct
 
 while True:
+    minimum_length = input("Enter the minimum length (or type 'exit' to quit): ")
+    if minimum_length.lower() == 'exit':
+        print("Thank you for stopping by! Exiting the program...")
+        sys.exit()
     try:
-        minimum_length = int(input("Enter the minimum length: "))
+        minimum_length = int(minimum_length)
         if minimum_length > 0:
             break  # Exit the loop if valid input is received
         else:
