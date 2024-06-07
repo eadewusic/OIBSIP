@@ -32,6 +32,10 @@ def generate_password(minimum_length, numbers=True, special_characters=True):
         if special_characters:
             meets_criteria = meets_criteria and has_special_chars # "and" is a logical operator that returns True if both expressions at the left and right are true
 
-    return password
+    return password #immediately returns password when the while loop conditions are false like it meets criteria and minimum password length is correct
 
-generate_password(12)
+minimum_length = int(input ("Enter the minimum length: "))
+has_number = input ("Do you want to have numbers? (y/n): ").lower() == "y"
+has_special_chars = input ("Do you want to have special characters? (y/n): ").lower() == "y"
+password = generate_password(minimum_length, has_number, has_special_chars)
+print("The generated password is:", password)
