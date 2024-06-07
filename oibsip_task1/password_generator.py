@@ -47,7 +47,7 @@ while True:
         else:
             print("Minimum length must be greater than 0.")
     except ValueError:
-        print("Invalid input. Please enter a number for minimum length.")
+        print("Invalid input. Please enter a number for minimum length or check for correct spelling of 'exit'.")
 
 # minimum_length = int(input ("Enter the minimum length: "))
 has_number = input ("Do you want to have numbers? (y/n): ").lower() == "y"
