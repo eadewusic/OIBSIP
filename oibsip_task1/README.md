@@ -2,11 +2,13 @@
 
 This project is a command-line tool that generates random passwords based on user-specified criteria. It aims to help beginners learn Python by incorporating concepts such as randomisation, user input validation, and character set handling.
 
+()
+
 ## Features
 
 - **Random Password Generation:** Create passwords with a specified length and character set.
 - **Character Types:** Include uppercase and lowercase letters, numbers, and symbols.
-- **User Input Validation:** Ensures valid input for password length and character types.
+- **User Input Validation/ Error Handling:** Ensures valid input for password length and character types.
 
 ## Getting Started
 
@@ -36,7 +38,7 @@ This project is a command-line tool that generates random passwords based on use
 
 2. **Select character types to include:**
 
-   - You will be asked whether to include uppercase letters, lowercase letters, numbers, and symbols. Enter 'y' for yes and 'n' for no.
+   - You will be asked whether to include numbers or special characters. Enter 'y' for yes and 'n' for no.
 
 3. **Get the generated password:**
    - The script will generate and display the password based on your specifications.
@@ -44,13 +46,11 @@ This project is a command-line tool that generates random passwords based on use
 ### Example
 
 ```
-Enter the desired password length: 12
-Include uppercase letters? (y/n): y
-Include lowercase letters? (y/n): y
-Include numbers? (y/n): y
-Include symbols? (y/n): n
+Enter the minimum length (or type 'exit' to quit): 12
+Do you want to have numbers? (y/n): y
+Do you want to have special characters? (y/n): n
 
-Generated password: B6cD3aF9bH2g
+The generated password is: qHlCwPndTDBkH1
 ```
 
 ## Code Overview
@@ -61,12 +61,10 @@ Generated password: B6cD3aF9bH2g
 
   - `random`: For generating random characters.
   - `string`: For accessing different character sets like lower and uppercase letters, numbers or digits or special characters.
+  - `sys`: To use the `sys.exit()` function to exit the python program for enhanced user experience.
 
 - **Functions:**
-  - `get_user_input()`: Prompts the user for password length and character types.
-  - `validate_input()`: Validates the user input for length and character types.
   - `generate_password()`: Generates the password using the validated inputs.
-  - `main()`: Main function that drives the script.
 
 ## Learning Objectives
 
@@ -76,6 +74,8 @@ Generated password: B6cD3aF9bH2g
    - Ensuring the user inputs a valid password length and selects at least one character type.
 3. **Character Set Handling:**
    - Managing different character sets (letters, numbers, symbols) and combining them based on user preferences.
+4. **Error Handling:**
+   - Ensuring that user input is the correct spelling, meets our set criteria and has minimum length > 0.
 
 ## Contributing
 
