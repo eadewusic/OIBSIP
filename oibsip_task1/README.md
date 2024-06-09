@@ -2,7 +2,7 @@
 
 This project is a command-line tool that generates random passwords based on user-specified criteria. It aims to help beginners learn Python by incorporating concepts such as randomisation, user input validation, and character set handling.
 
-()
+![Password Generator Terminal](../images/image.png)
 
 ## Features
 
@@ -77,6 +77,15 @@ The generated password is: qHlCwPndTDBkH1
 4. **Error Handling:**
    - Ensuring that user input is the correct spelling, meets our set criteria and has minimum length > 0.
 
+## Demo Video
+
+[YouTube](https://youtu.be/7uCQfN4d4Bk?si=lZhU2vQxZsxK-IAf)
+[TikTok](https://www.tiktok.com/@climiradiroberts/video/7378191496161365253?_t=8n3J68HrTwT&_r=1) Shorts.
+
 ## Contributing
 
 Contributions are welcome! Please fork the repository and create a pull request with your changes.
+
+## Contact
+
+If you have any questions, feedback, or collaboration requests, please feel free to reach out to me at [e.adewusi@alustudent.com](mailto:e.adewusi@alustudent.com).
