@@ -52,7 +52,7 @@ This project is a basic voice assistant designed for beginners in Python. It can
 
 ## Code Overview
 
-### Initialization
+### Initialisation
 
 ```python
 import speech_recognition as sr
