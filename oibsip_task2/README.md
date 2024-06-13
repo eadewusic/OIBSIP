@@ -13,7 +13,7 @@ This project is a basic voice assistant designed for beginners in Python. It can
 
 ## Requirements
 
-- Python 3.x
+- Python 3.11.5
 
 ## Installation
 
