@@ -14,22 +14,52 @@ This project is a basic voice assistant designed for beginners in Python. It can
 ## Requirements
 
 - Python 3.x
-- `speech_recognition` library
-- `pyttsx3` library
-- `datetime` library (included in Python standard library)
-- `webbrowser` library (included in Python standard library)
 
 ## Installation
 
-1. Make sure you have Python 3.x installed on your system.
-2. Install the required libraries using pip:
-   ```bash
-   pip install SpeechRecognition pyttsx3
-   ```
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/eadewusic/OIBSIP.git
+cd oibsip_task2
+```
+
+### 2. Create and Activate a Virtual Environment
+
+#### On Windows
+
+```powershell
+# Create virtual environment
+python -m venv .venv
+
+# Activate virtual environment
+.venv\Scripts\Activate.ps1
+
+# If you encounter an execution policy error, temporarily change the policy
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy RemoteSigned
+```
+
+#### On macOS/Linux
+
+```bash
+# Create virtual environment
+python3 -m venv .venv
+
+# Activate virtual environment
+source .venv/bin/activate
+```
+
+### 3. Install Dependencies
+
+After activating the virtual environment, install the required dependencies using `requirements.txt`:
+
+```bash
+pip install -r requirements.txt
+```
 
 ## Usage
 
-1. Clone this repository or download the code files.
+1. Ensure the virtual environment is activated.
 2. Run the `voice_assistant.py` file:
    ```bash
    python voice_assistant.py
