@@ -1,5 +1,9 @@
 from selenium import webdriver #import webdriver from selenium (tool/ web framework for automating web browsers)
 from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.common.by import By #to search google search field
+from selenium.webdriver.common.keys import Keys #to send specific key that can't be typed like the arrow keys
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 #download chrome webdriver = https://sites.google.com/chromium.org/driver/
 class info():
@@ -14,8 +18,22 @@ class info():
     def get_info(self, query):
         self.query = query
         self.driver.get("https://google.com") #self.driver initiates the chromedriver, .get method takes the url for a search
-        self.driver.implicitly_wait(10) #wait for up to 10 seconds for elements to load
+        self.driver.implicitly_wait(15)  # Increased wait time
+
+        try:
+        # Wait for the search box to appear
+            search = WebDriverWait(self.driver, 20).until(
+                EC.presence_of_element_located((By.CLASS_NAME, "gLFyf"))
+            )
+        
+        # Clear the search box and enter the query
+            search.clear()
+            search.send_keys(query + Keys.ENTER)
+
+        except Exception as e:
+            print(f"An error occurred: {e}")  # Print the error message for debugging
+
 
 #class instance
 assist = info()
-assist.get_info('hello')
+assist.get_info('neutron')
