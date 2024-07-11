@@ -29,13 +29,26 @@ def wish_me():
     else:
         return("evening")
 
-today_date = datetime.datetime.now() #datetime object formats date objects into readable strings
-
 r = sr.Recognizer() #create instance of the recogniser class, which creates an instance that helps us retrive info (audio) from a source (microphone)
 
 speak("Hi Eunice, good " + wish_me() + ". I'm your Voice Assistant.")
 
-speak("Today is " + today_date.strftime("%A") + today_date.strftime("%d") + " of " + today_date.strftime("%B") + today_date.strftime("%Y") + " and it's currently " + (today_date.strftime("%I")) + (today_date.strftime("%M")) + (today_date.strftime("%p")) + " with " + (today_date.strftime("%S")) + " seconds ") #strftime() method takes one parameter 'format' to specify the format of the returned string
+# speak("Today is " + today_date.strftime("%A") + today_date.strftime("%d") + " of " + today_date.strftime("%B") + today_date.strftime("%Y") + " and it's currently " + (today_date.strftime("%I")) + (today_date.strftime("%M")) + (today_date.strftime("%p")) + " with " + (today_date.strftime("%S")) + " seconds ") 
+
+#strftime() method takes one parameter 'format' to specify the format of the returned string
+def get_date_and_time():
+    today_date = datetime.datetime.now()
+
+    # Announce date in a natural format (avoiding separate letter pronunciation)
+    date_announcement = today_date.strftime("%A, %B %d, %Y")
+
+    time_announcement = today_date.strftime("%I:%M %p")
+
+    #add seconds
+    seconds_announcement = today_date.strftime("%S")
+
+    speak(f"Today is {date_announcement} and it's currently {time_announcement} with {seconds_announcement} seconds.")
+get_date_and_time()
 
 speak("How are you doing today?")
 
