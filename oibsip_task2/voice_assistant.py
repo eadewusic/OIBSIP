@@ -2,6 +2,7 @@ from selenium_web import info
 import pyttsx3 as p #module to convert text to speech
 import speech_recognition as sr #module to convert speech to text
 from YT_automation import *
+import randfacts #module for random and interesting facts
 
 engine = p.init() #instance of p.init class inside the pyttsx3 module; used to initiate the pyttsx3 used to convert text to speech
 rate = engine.getProperty('rate') #adjust speed of the voice, default is 200
@@ -73,3 +74,6 @@ elif "play" and "video" in text2:
  
     assist = poem()
     assist.play(vid)
+
+#add automation to tell random and interesting facts
+elif 
