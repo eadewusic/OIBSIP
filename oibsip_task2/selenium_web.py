@@ -46,7 +46,7 @@ class info():
                 print(f"Here's what I found: {text_to_read}")  #Print the extracted text
             except Exception as e:
                 # print(f"Couldn't find the text element: {e}")
-                speak("Sorry, I found the information but it can't be read out loud.")
+                speak("Can you read this yourself, please? I found the information but I can't read it out loud.")
 
             time.sleep(7)  # Keep the browser open for 7 seconds
             self.driver.quit()  # Close the browser after waiting
