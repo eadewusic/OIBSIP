@@ -2,6 +2,7 @@ from selenium_web import info
 import pyttsx3 as p #module to convert text to speech
 import speech_recognition as sr #module to convert speech to text
 from YT_automation import *
+import datetime #module to give date and time updates
 import randfacts #module for random and interesting facts
 
 engine = p.init() #instance of p.init class inside the pyttsx3 module; used to initiate the pyttsx3 used to convert text to speech
@@ -19,14 +20,18 @@ def speak(text):
     engine.say(text)
     engine.runAndWait()
 
+today_date = datetime.datetime.now() #datetime object formats date objects into readable strings
+
 r = sr.Recognizer() #create instance of the recogniser class, which creates an instance that helps us retrive info (audio) from a source (microphone)
 
 speak("Hello Eunice. My name is Asiri and I am your Voice Assistant. How are you?")
 
+speak("Today is " + today_date.strftime("%A") + today_date.strftime("%d") + " of " + today_date.strftime("%B") + today_date.strftime("%Y") + " and it's currently " + (today_date.strftime("%I")) + (today_date.strftime("%M")) + (today_date.strftime("%p")) + " with " + (today_date.strftime("%S")) + " seconds ") #strftime() method takes one parameter 'format' to specify the format of the returned string
+
 with sr.Microphone() as source:
     r.energy_threshold = 10000 #background property that increases spectrum of a voice. If increased, will capture even low voices
     r.adjust_for_ambient_noise(source, 1.2) #background property that cancels all the noise around you and captures your voice only
-    print("listening")
+    print("listening...")
     audio = r.listen(source) #listens to what we say, captures it in a mic and saves the audio in the audio variable
     text = r.recognize_google(audio) #send the audio to the Google API engine which will convert it to a text
     print(text)
@@ -39,7 +44,7 @@ speak("What can I do for you at the moment?") #mandatory line
 with sr.Microphone() as source:
     r.energy_threshold = 10000 #background property that increases spectrum of a voice. If increased, will capture even low voices
     r.adjust_for_ambient_noise(source, 1.2) #background property that cancels all the noise around you and captures your voice only
-    print("listening")
+    print("listening...")
     audio = r.listen(source) #listens to what we say, captures it in a mic and saves the audio in the audio variable
     text2 = r.recognize_google(audio)
 
@@ -49,7 +54,7 @@ if "information" in text2:
     with sr.Microphone() as source:
         r.energy_threshold = 10000
         r.adjust_for_ambient_noise(source, 1.2)
-        print("listening")
+        print("listening...")
         audio = r.listen(source)
         infor = r.recognize_google(audio)
 
@@ -65,7 +70,7 @@ elif "play" and "video" in text2:
     with sr.Microphone() as source:
         r.energy_threshold = 10000
         r.adjust_for_ambient_noise(source, 1.2)
-        print("listening")
+        print("listening...")
         audio = r.listen(source)
         vid = r.recognize_google(audio)
     
@@ -76,4 +81,8 @@ elif "play" and "video" in text2:
     assist.play(vid)
 
 #add automation to tell random and interesting facts
-elif 
+elif "fact" or "facts" in text2:
+    speak("Sure Eunice," )
+    x = randfacts.get_fact()
+    print(x)
+    speak("Did you know that, " + x)
