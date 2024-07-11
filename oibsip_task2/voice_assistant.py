@@ -42,7 +42,7 @@ with sr.Microphone() as source:
 
 greetings = ["Hello", "Hi", "Hey"]  # List of acceptable greetings
 
-if any(greeting in text for greeting in greetings):
+if any(greeting in text for greeting in greetings): #The any function checks the list if my greeting exist
     speak("Hi Eunice, good " + wish_me() + ". My name is Asiri and I'm your Voice Assistant.")
 else:
     # User didn't say the activation phrase, continue listening
