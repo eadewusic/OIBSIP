@@ -1,19 +1,26 @@
-from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
-import time
+# from selenium import webdriver
+# import pyttsx3 as p
+import speech_recognition as sr
+# import time
+import yagmail
 
-class email():
-    def __init__(self):
-        chromedriver_path = 'C:/Users/HP/.wdm/drivers/chromedriver-win64/chromedriver.exe'
-        self.service = Service(executable_path=chromedriver_path)
-        self.driver = webdriver.Chrome(service=self.service)
+r = sr.Recognizer()
 
-#main working function of our email sending script
-    def send_email(self, query):
-        self.query = query
-        self.driver.get("https://mail.google.com/mail/u/0/?fs=1&tf=cm&source=mailto&to=" + query)
+with sr.Microphone() as source:
+    print("clearing background noise...")
+    r.adjust_for_ambient_noise(source, 1.2)
+    print("listening...")
+    audio = r.listen(source)
+    try:
+        text = r.recognize_google(audio)
 
-assist = email()
-assist.send_email('nexogirlss@gmail.com')
+        print('Your message:{}'.format(text))
+
+    except Exception as e:
+        print(f"An error occurred: {e}")
+
+#add automation to send emails
+receiver = 'euniceadewusic@gmail.com'
+message = text
+sender = yagmail.SMTP('climiradiroberts@gmail.com')
+sender.send(to=receiver, subject="This is an automated mail from Asiri", contents=message)
