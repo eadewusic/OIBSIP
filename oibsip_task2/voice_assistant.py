@@ -1,6 +1,7 @@
 from selenium_web import info
 import pyttsx3 as p #module to convert text to speech
 import speech_recognition as sr #module to convert speech to text
+from send_email import *
 from YT_automation import *
 import datetime #module to give date and time updates
 import randfacts #module for random and interesting facts
@@ -125,20 +126,19 @@ elif "fact" or "facts" in text2:
     speak("Did you know that, " + x)
 
 #add automation to send emails
-elif "email" or "send" in text:
-    speak("What is the message you want to send in your email?")
+elif "email" and "send" in text2:
+    speak("I am happy to send the email")
     with sr.Microphone() as source:
         r.energy_threshold = 10000
         r.adjust_for_ambient_noise(source, 1.2)
         print("listening...")
         audio = r.listen(source)
-        text = r.recognize_google(audio)
-        print(text)
-
-    receiver = 'euniceadewusic@gmail.com'
-    message = text
-    sender = yagmail.SMTP('asiri.va@gmail.com')
-    sender.send(to=receiver, subject="This is an automated mail from Asiri", content=message)
+        vid = r.recognize_google(audio)
+    
+        receiver = 'euniceadewusic@gmail.com'
+        message = text
+        sender = yagmail.SMTP('climiradiroberts@gmail.com')
+        sender.send(to=receiver, subject="This is an automated mail from Asiri", contents=message)
 
 # Print exit message before exiting
 with sr.Microphone() as source:
