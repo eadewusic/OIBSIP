@@ -33,9 +33,11 @@ today_date = datetime.datetime.now() #datetime object formats date objects into 
 
 r = sr.Recognizer() #create instance of the recogniser class, which creates an instance that helps us retrive info (audio) from a source (microphone)
 
-speak("Hello Eunice, good " + wish_me() + ". My name is Asiri and I am your Voice Assistant. How are you?")
+speak("Hi Eunice, good " + wish_me() + ". I'm your Voice Assistant.")
 
 speak("Today is " + today_date.strftime("%A") + today_date.strftime("%d") + " of " + today_date.strftime("%B") + today_date.strftime("%Y") + " and it's currently " + (today_date.strftime("%I")) + (today_date.strftime("%M")) + (today_date.strftime("%p")) + " with " + (today_date.strftime("%S")) + " seconds ") #strftime() method takes one parameter 'format' to specify the format of the returned string
+
+speak("How are you doing today?")
 
 with sr.Microphone() as source:
     r.energy_threshold = 10000 #background property that increases spectrum of a voice. If increased, will capture even low voices
