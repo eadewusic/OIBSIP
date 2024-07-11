@@ -8,6 +8,17 @@ import pyttsx3 as p
 import time
 
 #download chrome webdriver = https://sites.google.com/chromium.org/driver/
+
+engine = p.init()  # Initialise the text-to-speech engine
+rate = engine.getProperty('rate') #adjust speed of the voice, default is 200
+engine.setProperty('rate', 170) #to change it to slower speed
+voices = engine.getProperty('voices')
+engine.setProperty('voice', voices[1].id)
+
+def speak(text_to_read):
+    #Speaks the given text using the text-to-speech engine.
+    engine.say(text_to_read)
+    engine.runAndWait()
 class info():
     def __init__(self):
         chromedriver_path = 'C:/Users/HP/.wdm/drivers/chromedriver-win64/chromedriver.exe'
@@ -31,20 +42,13 @@ class info():
             try:
                 knowledge_panel = self.driver.find_element(By.CLASS_NAME, "hgKElc")
                 text_to_read = knowledge_panel.text
-                print(f"Nexo Girls Information: {text_to_read}")  # Print the extracted text
+                speak(f"Here's what I found for {query}: {text_to_read}")
+                print(f"Here's what I found: {text_to_read}")  #Print the extracted text
             except Exception as e:
-                print(f"Couldn't find the text element: {e}")
+                # print(f"Couldn't find the text element: {e}")
+                speak("Sorry, I found the information but it can't be read out loud.")
 
-            if text_to_read:
-                engine = p.init()  # Initialise the text-to-speech engine
-                rate = engine.getProperty('rate') #adjust speed of the voice, default is 200
-                engine.setProperty('rate', 170) #to change it to slower speed
-                voices = engine.getProperty('voices')
-                engine.setProperty('voice', voices[1].id)
-                engine.say(text_to_read)
-                engine.runAndWait()  # Say the text and wait for it to finish
-
-            time.sleep(5)  # Keep the browser open for 10 seconds
+            time.sleep(7)  # Keep the browser open for 7 seconds
             self.driver.quit()  # Close the browser after waiting
 
         except Exception as e:

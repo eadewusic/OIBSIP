@@ -58,6 +58,7 @@ if "information" in text2:
     assist = info()
     assist.get_info(infor)
 
+#add automation to play video on YouTube
 elif "play" and "video" in text2:
     speak("Which video do you want me to play for you?")
     with sr.Microphone() as source:
