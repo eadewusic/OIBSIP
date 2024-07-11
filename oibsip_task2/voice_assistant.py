@@ -1,6 +1,7 @@
 from selenium_web import info
 import pyttsx3 as p #module to convert text to speech
 import speech_recognition as sr #module to convert speech to text
+from YT_automation import *
 
 engine = p.init() #instance of p.init class inside the pyttsx3 module; used to initiate the pyttsx3 used to convert text to speech
 rate = engine.getProperty('rate') #adjust speed of the voice, default is 200
@@ -30,7 +31,7 @@ with sr.Microphone() as source:
     print(text)
 
 if "what" and "about" and "you" in text:
-    speak("I am fine, thank you!")
+    speak("Thanks for asking, I am doing just fine!")
 speak("What can I do for you at the moment?") #mandatory line
 
 #add automation - search online sites for info I say - using Selenium WebDrive to scrape data (collecting specific information from websites.)
@@ -51,7 +52,23 @@ if "information" in text2:
         audio = r.listen(source)
         infor = r.recognize_google(audio)
 
+    print("Searching {} on Google".format(infor))
     speak("Searching {} on Google".format(infor))
 
     assist = info()
     assist.get_info(infor)
+
+elif "play" and "video" in text2:
+    speak("Which video do you want me to play for you?")
+    with sr.Microphone() as source:
+        r.energy_threshold = 10000
+        r.adjust_for_ambient_noise(source, 1.2)
+        print("listening")
+        audio = r.listen(source)
+        vid = r.recognize_google(audio)
+    
+    print("Playing {} on YouTube".format(vid))
+    speak("Playing {} on YouTube".format(vid))
+ 
+    assist = poem()
+    assist.play(vid)
