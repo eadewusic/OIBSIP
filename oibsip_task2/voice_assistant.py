@@ -1,4 +1,5 @@
-import pyttsx3 as p ##module to convert text to speech
+from selenium_web import info
+import pyttsx3 as p #module to convert text to speech
 import speech_recognition as sr #module to convert speech to text
 
 engine = p.init() #instance of p.init class inside the pyttsx3 module; used to initiate the pyttsx3 used to convert text to speech
