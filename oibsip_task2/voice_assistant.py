@@ -20,11 +20,20 @@ def speak(text):
     engine.say(text)
     engine.runAndWait()
 
+def wish_me():
+    hour = int(datetime.datetime.now().hour)
+    if hour>0 and hour<12:
+        return("morning")
+    elif hour>=12 and hour<16:
+        return("afternoon")
+    else:
+        return("evening")
+
 today_date = datetime.datetime.now() #datetime object formats date objects into readable strings
 
 r = sr.Recognizer() #create instance of the recogniser class, which creates an instance that helps us retrive info (audio) from a source (microphone)
 
-speak("Hello Eunice. My name is Asiri and I am your Voice Assistant. How are you?")
+speak("Hello Eunice, good " + wish_me() + ". My name is Asiri and I am your Voice Assistant. How are you?")
 
 speak("Today is " + today_date.strftime("%A") + today_date.strftime("%d") + " of " + today_date.strftime("%B") + today_date.strftime("%Y") + " and it's currently " + (today_date.strftime("%I")) + (today_date.strftime("%M")) + (today_date.strftime("%p")) + " with " + (today_date.strftime("%S")) + " seconds ") #strftime() method takes one parameter 'format' to specify the format of the returned string
 
