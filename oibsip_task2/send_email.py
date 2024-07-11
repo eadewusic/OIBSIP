@@ -11,7 +11,7 @@ def send_email():
         audio = r.listen(source)
         try:
             text = r.recognize_google(audio)
-            print('Your message:', text)
+            print('Your message: ', text)
 
             # Confirmation prompt for sending email
             confirmation = input("Do you want to send this email? (y/n): ")

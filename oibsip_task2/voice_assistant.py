@@ -126,8 +126,8 @@ elif "fact" or "facts" in text2:
     speak("Did you know that, " + x)
 
 #add automation to send emails
-elif "email" and "send" in text2:
-    speak("I am happy to send the email")
+elif "send" and "email" in text2:
+    speak("I am happy to send the email for you")
     with sr.Microphone() as source:
         r.energy_threshold = 10000
         r.adjust_for_ambient_noise(source, 1.2)
@@ -135,10 +135,11 @@ elif "email" and "send" in text2:
         audio = r.listen(source)
         vid = r.recognize_google(audio)
     
-        receiver = 'euniceadewusic@gmail.com'
-        message = text
-        sender = yagmail.SMTP('climiradiroberts@gmail.com')
-        sender.send(to=receiver, subject="This is an automated mail from Asiri", contents=message)
+    print("Sending {} e-mail now".format(vid))
+    speak("Playing {} on YouTube".format(vid))
+ 
+    assist = poem()
+    assist.play(vid)
 
 # Print exit message before exiting
 with sr.Microphone() as source:
