@@ -4,6 +4,7 @@ import speech_recognition as sr #module to convert speech to text
 from YT_automation import *
 import datetime #module to give date and time updates
 import randfacts #module for random and interesting facts
+import yagmail
 
 engine = p.init() #instance of p.init class inside the pyttsx3 module; used to initiate the pyttsx3 used to convert text to speech
 rate = engine.getProperty('rate') #adjust speed of the voice, default is 200
@@ -36,7 +37,7 @@ with sr.Microphone() as source:
     r.adjust_for_ambient_noise(source, 1.2)
     print("listening...")
     audio = r.listen(source)
-    text = r.recognize_google(audio)
+    text = r.recognize_google(audio) #using Google API to convert audio-my voice into text to do any task I say
     print(text)
 
 greetings = ["hello", "hi", "hey"]  # List of acceptable greetings
@@ -122,6 +123,22 @@ elif "fact" or "facts" in text2:
     x = randfacts.get_fact()
     print(x)
     speak("Did you know that, " + x)
+
+#add automation to send emails
+elif "email" or "send" in text:
+    speak("What is the message you want to send in your email?")
+    with sr.Microphone() as source:
+        r.energy_threshold = 10000
+        r.adjust_for_ambient_noise(source, 1.2)
+        print("listening...")
+        audio = r.listen(source)
+        text = r.recognize_google(audio)
+        print(text)
+
+    receiver = 'euniceadewusic@gmail.com'
+    message = text
+    sender = yagmail.SMTP('asiri.va@gmail.com')
+    sender.send(to=receiver, subject="This is an automated mail from Asiri", content=message)
 
 # Print exit message before exiting
 with sr.Microphone() as source:
