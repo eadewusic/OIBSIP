@@ -51,5 +51,5 @@ class info():
             print(f"An error occurred: {e}")  # Print the error message for debugging
 
 #class instance
-assist = info()
-assist.get_info('Who are Nexo Girls?')
+# assist = info()
+# assist.get_info('Who are Nexo Girls?')

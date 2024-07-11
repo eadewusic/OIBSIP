@@ -34,3 +34,24 @@ if "what" and "about" and "you" in text:
 speak("What can I do for you at the moment?") #mandatory line
 
 #add automation - search online sites for info I say - using Selenium WebDrive to scrape data (collecting specific information from websites.)
+with sr.Microphone() as source:
+    r.energy_threshold = 10000 #background property that increases spectrum of a voice. If increased, will capture even low voices
+    r.adjust_for_ambient_noise(source, 1.2) #background property that cancels all the noise around you and captures your voice only
+    print("listening")
+    audio = r.listen(source) #listens to what we say, captures it in a mic and saves the audio in the audio variable
+    text2 = r.recognize_google(audio)
+
+if "information" in text2:
+    speak("What exactly do you need information about?")
+
+    with sr.Microphone() as source:
+        r.energy_threshold = 10000
+        r.adjust_for_ambient_noise(source, 1.2)
+        print("listening")
+        audio = r.listen(source)
+        infor = r.recognize_google(audio)
+
+    speak("Searching {} on Google".format(infor))
+
+    assist = info()
+    assist.get_info(infor)
