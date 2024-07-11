@@ -31,7 +31,22 @@ def wish_me():
 
 r = sr.Recognizer() #create instance of the recogniser class, which creates an instance that helps us retrive info (audio) from a source (microphone)
 
-speak("Hi Eunice, good " + wish_me() + ". I'm your Voice Assistant.")
+# Move microphone code outside the if block
+with sr.Microphone() as source:
+    r.energy_threshold = 10000
+    r.adjust_for_ambient_noise(source, 1.2)
+    print("listening...")
+    audio = r.listen(source)
+    text = r.recognize_google(audio)
+    print(text)
+
+greetings = ["Hello", "Hi", "Hey"]  # List of acceptable greetings
+
+if any(greeting in text for greeting in greetings):
+    speak("Hi Eunice, good " + wish_me() + ". My name is Asiri and I'm your Voice Assistant.")
+else:
+    # User didn't say the activation phrase, continue listening
+    speak("Sorry, I didn't catch that but no worries")
 
 #strftime() method takes one parameter 'format' to specify the format of the returned string
 def get_date_and_time():
