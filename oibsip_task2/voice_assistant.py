@@ -31,7 +31,6 @@ def wish_me():
 
 r = sr.Recognizer() #create instance of the recogniser class, which creates an instance that helps us retrive info (audio) from a source (microphone)
 
-# Move microphone code outside the if block
 with sr.Microphone() as source:
     r.energy_threshold = 10000
     r.adjust_for_ambient_noise(source, 1.2)
@@ -40,7 +39,7 @@ with sr.Microphone() as source:
     text = r.recognize_google(audio)
     print(text)
 
-greetings = ["Hello", "Hi", "Hey"]  # List of acceptable greetings
+greetings = ["hello", "hi", "hey"]  # List of acceptable greetings
 
 if any(greeting in text for greeting in greetings): #The any function checks the list if my greeting exist
     speak("Hi Eunice, good " + wish_me() + ". My name is Asiri and I'm your Voice Assistant.")
@@ -123,3 +122,34 @@ elif "fact" or "facts" in text2:
     x = randfacts.get_fact()
     print(x)
     speak("Did you know that, " + x)
+
+# Print exit message before exiting
+with sr.Microphone() as source:
+    r.energy_threshold = 10000
+    r.adjust_for_ambient_noise(source, 1.2)
+    print("listening...")
+    audio = r.listen(source)
+    text = r.recognize_google(audio)
+    print(text)
+
+speak("You're welcome. Anything else?")
+
+with sr.Microphone() as source:
+    r.energy_threshold = 10000
+    r.adjust_for_ambient_noise(source, 1.2)
+    print("listening...")
+    audio = r.listen(source)
+    text = r.recognize_google(audio)
+    print(text)
+
+exit_response = ["no", "not at all", "not at the moment"]  # List of acceptable greetings
+
+if any(response in text for response in exit_response):
+    print("Alrighty, I'm going to sleep now. Bye!")
+    speak("Alrighty, I'm going to sleep now. Bye!")
+else:
+    # User didn't say the activation phrase, continue listening
+    print ("Bye!")
+    speak("I didn't hear you but I'm going to sleep anyways. Bye!")
+
+exit(0)  # Exit with code 0 (success)
