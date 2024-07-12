@@ -2,14 +2,17 @@
 
 ## Description
 
-This project is a basic voice assistant designed for beginners in Python. It can perform simple tasks based on voice commands, such as responding to "Hello", telling the current time or date, and searching the web for information.
+This project is a basic voice assistant in Python. It can perform tasks based on voice commands, such as responding to "Hello, Hi or Hey", telling the current time or date, searching the web (Google) for information, telling interesting fact, send email, and play video on YouTube.
 
 ## Features
 
 - Responds to greetings.
-- Tells the current time.
-- Provides today's date.
-- Searches the web based on user queries.
+- Provides today's date in month, day and year format.
+- Tells the current time in minutes, hours and seconds.
+- Searches the web (Google) for information and can read out the information based on user queries.
+- Play video on YouTube.
+- Sends email.
+- Tells interesting fact, one at a time.
 
 ## Requirements
 
@@ -35,7 +38,7 @@ python -m venv .venv
 # Activate virtual environment
 .venv\Scripts\Activate.ps1
 
-# If you encounter an execution policy error, temporarily change the policy
+# If you encounter an execution policy error, temporarily change the policy before activating the environment
 Set-ExecutionPolicy -Scope Process -ExecutionPolicy RemoteSigned
 ```
 
@@ -59,7 +62,7 @@ pip install -r requirements.txt
 
 ## Usage
 
-1. Ensure the virtual environment is activated.
+1. Ensure the virtual environment is activated in your terminal.
 2. Run the `voice_assistant.py` file:
    ```bash
    python voice_assistant.py
@@ -68,96 +71,37 @@ pip install -r requirements.txt
 
 ## Functionality
 
-- **Greeting Response**: The assistant will respond to "Hello" with a greeting.
-- **Time Inquiry**: Ask "What is the time?" to get the current time.
-- **Date Inquiry**: Ask "What is the date?" to get today's date.
-- **Web Search**: Say "Search for" followed by your query to search the web.
+- **Greeting Response**: The assistant will respond to "Hello, Hi or Hey" with a greeting and it if you don't include any of those words, it still will respond.
+- **Time/ Date Response**: It immediately tells you the current date and time after the greeting.
+- **Web Search**: Make sure whatever your query is, includes the word "information".
+- **Plays Video on YouTube**: Just say the name of the YouTube video you want to play.
+- **Sends Email**: Make sure whatever your query is, include the words "send" and "email".
+- **Interesting Fact/ General Knowledge**: Make sure whatever your query is, includes either "fact" or "facts".
 
 ## Example Commands
 
-- "Hello"
-- "What is the time?"
-- "What is the date?"
+- "Hello", "Hi", "Hey", "Hi Asiri", "Who goes there", etc.
 - "Search for Python tutorials"
+- "Dear Young Woman" or "Play me Dear Young Woman"
+- "Can you send an email for me?"
+- "Can you tell me an interesting fact?"
 
-## Code Overview
+## Contributing
 
-### Initialisation
+I welcome contributions to this project, only after September 2024! If you would like to contribute, please follow these guidelines:
 
-```python
-import speech_recognition as sr
-import pyttsx3
-import datetime
-import webbrowser
+1. Fork the repository.
 
-engine = pyttsx3.init()
+2. Create a new branch for your feature or bug fix.
 
-def speak(text):
-    engine.say(text)
-    engine.runAndWait()
-```
+3. Make your changes and commit them with descriptive messages.
 
-### Getting Voice Commands
+4. Submit a pull request to the `main` branch.
 
-```python
-def get_voice_command():
-    recognizer = sr.Recognizer()
-    with sr.Microphone() as source:
-        print("Listening...")
-        audio = recognizer.listen(source)
+## License
 
-        try:
-            command = recognizer.recognize_google(audio)
-            print(f"You said: {command}")
-            return command.lower()
-        except sr.UnknownValueError:
-            speak("Sorry, I did not understand that.")
-            return None
-        except sr.RequestError:
-            speak("Sorry, my speech service is down.")
-            return None
-```
-
-### Handling Commands
-
-```python
-def handle_command(command):
-    if "hello" in command:
-        speak("Hello! How can I assist you today?")
-
-    elif "time" in command:
-        now = datetime.datetime.now()
-        speak(f"The current time is {now.strftime('%H:%M')}")
-
-    elif "date" in command:
-        today = datetime.date.today()
-        speak(f"Today's date is {today.strftime('%B %d, %Y')}")
-
-    elif "search" in command:
-        speak("What do you want to search for?")
-        search_query = get_voice_command()
-        if search_query:
-            url = f"https://www.google.com/search?q={search_query}"
-            webbrowser.open(url)
-            speak(f"Here are the search results for {search_query}")
-
-    else:
-        speak("Sorry, I didn't understand that command.")
-```
-
-### Running the Assistant
-
-```python
-def run_voice_assistant():
-    speak("Voice Assistant initialized. How can I help you?")
-    while True:
-        command = get_voice_command()
-        if command:
-            handle_command(command)
-
-run_voice_assistant()
-```
+This project will be licensed under the [MIT License](LICENSE). You can find the full text of the license in the [LICENSE](LICENSE) file later.
 
 ## Contact
 
-If you have any questions, feedback, or collaboration requests, please feel free to reach out to me at [e.adewusi@alustudent.com](mailto:e.adewusi@alustudent.com).
+If you have any questions, feedback, or collaboration requests, please feel free to reach out to me at [euniceadewusic@gmail.com](mailto:euniceadewusic@gmail.com).
