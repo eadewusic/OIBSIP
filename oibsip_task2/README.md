@@ -2,7 +2,7 @@
 
 ## Description
 
-This project is a basic voice assistant in Python. It can perform tasks based on voice commands, such as responding to "Hello, Hi or Hey", telling the current time or date, searching the web (Google) for information, telling interesting fact, send email, and play video on YouTube.
+This project is a basic voice assistant in Python. It can perform tasks based on voice commands, such as responding to "Hello, Hi or Hey", telling the current time or date, searching the web (Google) for information, telling interesting fact, sending email, and playing video on YouTube.
 
 ## Features
 
@@ -64,9 +64,11 @@ pip install -r requirements.txt
 
 1. Ensure the virtual environment is activated in your terminal.
 2. Run the `voice_assistant.py` file:
+
    ```bash
    python voice_assistant.py
    ```
+
 3. The voice assistant will initialise and start listening for your commands.
 
 ## Functionality
