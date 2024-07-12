@@ -1,4 +1,4 @@
-# Voice Assistant
+# Voice Assistant - Asiri
 
 This project is a basic voice assistant in Python. It can perform tasks based on voice commands, such as responding to "Hello, Hi or Hey", telling the current time or date, searching the web (Google) for information, telling interesting fact, sending email, and playing video on YouTube.
 
