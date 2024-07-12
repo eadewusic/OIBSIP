@@ -1,4 +1,4 @@
-# Random Password Generator (Beginner)
+# Random Password Generator
 
 This project is a command-line tool that generates random passwords based on user-specified criteria. It aims to help beginners learn Python by incorporating concepts such as randomisation, user input validation, and character set handling.
 
