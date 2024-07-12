@@ -1,8 +1,8 @@
 # Voice Assistant
 
-## Description
-
 This project is a basic voice assistant in Python. It can perform tasks based on voice commands, such as responding to "Hello, Hi or Hey", telling the current time or date, searching the web (Google) for information, telling interesting fact, sending email, and playing video on YouTube.
+
+![Password Generator Terminal](./images/image.png)
 
 ## Features
 
@@ -100,9 +100,10 @@ I welcome contributions to this project, **only after September 2024!** If you w
 
 4. Submit a pull request to the `main` branch.
 
-## License
+## Demo Video
 
-This project will be licensed under the [MIT License](LICENSE). You can find the full text of the license in the [LICENSE](LICENSE) file later.
+- [YouTube](https://youtu.be/7uCQfN4d4Bk?si=lZhU2vQxZsxK-IAf)
+- [TikTok](https://www.tiktok.com/@climiradiroberts/video/7378191496161365253?_t=8n3J68HrTwT&_r=1)
 
 ## Contact
 
