@@ -80,7 +80,7 @@ The generated password is: qHlCwPndTDBkH1
 ## Demo Video
 
 - [YouTube](https://youtu.be/7uCQfN4d4Bk?si=lZhU2vQxZsxK-IAf)
-- [TikTok](https://www.tiktok.com/@climiradiroberts/video/7378191496161365253?_t=8n3J68HrTwT&_r=1).
+- [TikTok](https://www.tiktok.com/@climiradiroberts/video/7378191496161365253?_t=8n3J68HrTwT&_r=1)
 
 ## Contact
 
