@@ -1,6 +1,6 @@
 # Voice Assistant - Asiri
 
-This project is a basic voice assistant in Python. It can perform tasks based on voice commands, such as responding to "Hello, Hi or Hey", telling the current time or date, searching the web (Google) for information, telling interesting fact, sending email, and playing video on YouTube.
+This project is a semi-advanced voice assistant in Python. It can perform tasks based on voice commands, such as responding to "Hello, Hi or Hey", telling the current time or date, searching the web (Google) for information, telling interesting fact, sending email, and playing video on YouTube.
 
 ![Password Generator Terminal](./images/image.png)
 
@@ -10,7 +10,7 @@ This project is a basic voice assistant in Python. It can perform tasks based on
 - Provides today's date in month, day and year format.
 - Tells the current time in minutes, hours and seconds.
 - Searches the web (Google) for information and can read out the information based on user queries.
-- Play video on YouTube.
+- Plays video on YouTube.
 - Sends email.
 - Tells interesting fact, one at a time.
 
