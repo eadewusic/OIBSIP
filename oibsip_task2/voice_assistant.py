@@ -14,13 +14,10 @@ voices = engine.getProperty('voices') #to have a look at the range of voices my 
 engine.setProperty('voice', voices[1].id) #to listen to the 1st of 2 voices offered
 # print(voices)
 
-# engine.say("Hello there. My name is Asiri and I am your Voice Assistant")
-# engine.runAndWait() computer to wait until the sentence gets finished
-
 #for computer to say something from the user instead of typing it out in the code
 def speak(text):
     engine.say(text)
-    engine.runAndWait()
+    engine.runAndWait() #computer to wait until the sentence gets finished
 
 def wish_me():
     hour = int(datetime.datetime.now().hour)
@@ -119,64 +116,63 @@ elif "play" and "video" in text2:
     assist.play(vid)
 
 #add automation to send emails
-while True:
-    if "send" and "email" in text2:
-        speak("I am happy to send the email for you")
+elif "send" and "email" in text2:
+    speak("I am happy to send the email for you")
 
-        with sr.Microphone() as source:
-            print("clearing background noise...")
-            r.adjust_for_ambient_noise(source, 1.2)
-            print("listening...")
-            audio = r.listen(source)
-            try:
-                email_content = r.recognize_google(audio)
-                print(f"Email content: {email_content}")
+    with sr.Microphone() as source:
+        print("clearing background noise...")
+        r.adjust_for_ambient_noise(source, 1.2)
+        print("listening...")
+        audio = r.listen(source)
+        try:
+            email_content = r.recognize_google(audio)
+            print(f"Email content: {email_content}")
 
-            except sr.UnknownValueError:
-                print("Sorry, I couldn't understand your speech. Please try again.")
-            except Exception as e:
-                print(f"An error occurred: {e}")
+        except sr.UnknownValueError:
+            print("Sorry, I couldn't understand your speech. Please try again.")
+        except Exception as e:
+            print(f"An error occurred: {e}")
 
-        print("Sending e-mail now via Gmail".format(text2))
-        speak("Sending e-mail now via Gmail".format(text2))
-    
-        # Now call send_email() after capturing email content
-        send_email()  # Pass the captured email content
+    print("Sending e-mail now via Gmail".format(text2))
+    speak("Sending e-mail now via Gmail".format(text2))
+
+    # Now call send_email() after capturing email content
+    send_email(email_content)  # Pass the captured email content
 
 #add automation to tell random and interesting facts
-    elif "fact" or "facts" in text2:
-        speak("Sure Eunice," )
-        x = randfacts.get_fact()
-        print(x)
-        speak("Did you know that, " + x)
+elif "fact" or "facts" in text2:
+    speak("Sure Eunice," )
+    x = randfacts.get_fact()
+    print(x)
+    speak("Did you know that, " + x)
 
-    # Print exit message before exiting
-    with sr.Microphone() as source:
-        r.energy_threshold = 10000
-        r.adjust_for_ambient_noise(source, 1.2)
-        print("listening...")
-        audio = r.listen(source)
-        text = r.recognize_google(audio)
-        print(text)
+# Print exit message before exiting
+with sr.Microphone() as source:
+    r.energy_threshold = 10000
+    r.adjust_for_ambient_noise(source, 1.2)
+    print("listening...")
+    audio = r.listen(source)
+    text = r.recognize_google(audio)
+    print(text)
 
-    speak("You're welcome. Anything else?")
+speak("You're welcome. Anything else?")
 
-    with sr.Microphone() as source:
-        r.energy_threshold = 10000
-        r.adjust_for_ambient_noise(source, 1.2)
-        print("listening...")
-        audio = r.listen(source)
-        text = r.recognize_google(audio)
-        print(text)
+with sr.Microphone() as source:
+    r.energy_threshold = 10000
+    r.adjust_for_ambient_noise(source, 1.2)
+    print("listening...")
+    audio = r.listen(source)
+    text = r.recognize_google(audio)
+    print(text)
 
-    exit_response = ["no", "not at all", "not at the moment"]  # List of acceptable greetings
+exit_response = ["no", "not at all", "not at the moment"]  # List of acceptable greetings
 
-    if any(response in text for response in exit_response):
-        print("Alrighty, I'm going to sleep now. Bye!")
-        speak("Alrighty, I'm going to sleep now. Bye!")
-    else:
-        # User didn't say the activation phrase, continue listening
-        print ("Bye!")
-        speak("I didn't hear you but I'm going to sleep anyways. Bye!")
+if any(response in text for response in exit_response):
+    print("Alrighty, I'm going to sleep now. Bye!")
+    speak("Alrighty, I'm going to sleep now. Bye!")
+else:
+    # User didn't say the activation phrase, continue listening
+    print ("Bye!")
+    speak("I didn't hear you but I'm going to sleep anyways. Bye!")
 
-    exit(0)  # Exit with code 0 (success)
+exit(0)  # Exit with code 0 (success)
