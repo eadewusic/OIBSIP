@@ -90,7 +90,7 @@ pip install -r requirements.txt
 
 ## Contributing
 
-I welcome contributions to this project, only after September 2024! If you would like to contribute, please follow these guidelines:
+I welcome contributions to this project, **only after September 2024!** If you would like to contribute, please follow these guidelines:
 
 1. Fork the repository.
 
