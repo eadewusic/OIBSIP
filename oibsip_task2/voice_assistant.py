@@ -35,7 +35,7 @@ with sr.Microphone() as source:
     r.adjust_for_ambient_noise(source, 1.2)
     print("listening...")
     audio = r.listen(source)
-    text = r.recognize_google(audio) #using Google API to convert audio-my voice into text to do any task I say
+    text = r.recognize_google(audio) #using Google API from the speech recognition library to convert audio-my voice into text to do any task I say
     print(text)
 
 greetings = ["hello", "hi", "hey"]  # List of acceptable greetings
