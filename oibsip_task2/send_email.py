@@ -6,7 +6,7 @@ def send_email(content):
     if confirmation.lower() == 'y':
         receiver = 'euniceadewusic@gmail.com'
         message = content
-        sender = yagmail.SMTP('climiradiroberts@gmail.com', 'yhxfpnpfcxhgxgrc')  # To whomever forks this: Replace with your Gmail account password
+        sender = yagmail.SMTP('climiradiroberts@gmail.com', 'your_app_password')  # To whomever forks this: Replace with your Gmail account password
         sender.send(to=receiver, subject="Automated mail from Asiri", contents=message)
         print("Email sent successfully!")
     else:
