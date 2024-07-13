@@ -165,7 +165,7 @@ with sr.Microphone() as source:
     text = r.recognize_google(audio)
     print(text)
 
-exit_response = ["no", "not at all", "not at the moment"]  # List of acceptable greetings
+exit_response = ["no", "not at all", "not at the moment"]  # List of acceptable exit responses
 
 if any(response in text for response in exit_response):
     print("Alrighty, I'm going to sleep now. Bye!")
