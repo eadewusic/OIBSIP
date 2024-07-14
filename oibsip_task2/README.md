@@ -102,8 +102,8 @@ I welcome contributions to this project, **only after September 2024!** If you w
 
 ## Demo Video
 
-- [YouTube](https://youtu.be/7uCQfN4d4Bk?si=lZhU2vQxZsxK-IAf)
-- [TikTok](https://www.tiktok.com/@climiradiroberts/video/7378191496161365253?_t=8n3J68HrTwT&_r=1)
+- [YouTube](https://youtu.be/-T0gJqJ0NUo)
+- [TikTok]()
 
 ## Contact
 
