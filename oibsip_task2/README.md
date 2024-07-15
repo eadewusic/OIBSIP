@@ -103,7 +103,7 @@ I welcome contributions to this project, **only after September 2024!** If you w
 ## Demo Video
 
 - [YouTube](https://youtu.be/-T0gJqJ0NUo)
-- [TikTok]()
+- [TikTok](https://vm.tiktok.com/ZMr5LPUb4/)
 
 ## Contact
 
