@@ -58,10 +58,14 @@ python bmi_calculator.py
 
 ```plaintext
 Welcome to the BMI Calculator
+What is your name? Emma
+Hello, Emma
 Enter your weight in kilograms: 70
 Enter your height in meters: 1.75
 Your BMI is: 22.86
-You are classified as: Normal weight
+Dear Emma, you are classified as 'Normal weight'
+Do you want to calculate another BMI? (yes/no): no
+Thank you for using the BMI Calculator. Goodbye!
 ```
 
 ## Contributing
@@ -70,8 +74,8 @@ If you would like to contribute to this project, please fork the repository and 
 
 ## Demo Video
 
-- [YouTube](https://youtu.be/7uCQfN4d4Bk?si=lZhU2vQxZsxK-IAf)
-- [TikTok](https://www.tiktok.com/@climiradiroberts/video/7378191496161365253?_t=8n3J68HrTwT&_r=1)
+- [YouTube](https://youtu.be/WGevpQAsOmk)
+- [TikTok]()
 
 ## Contact
 
