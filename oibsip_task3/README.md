@@ -4,6 +4,8 @@
 
 This project is a command-line Body Mass Index (BMI) calculator written in Python. It prompts users to enter their weight (in kilograms) and height (in meters), calculates their BMI, and classifies it into categories based on predefined ranges.
 
+![BMI Calculator Terminal](./images/image.png)
+
 ### Features
 
 - User-friendly command-line interface
