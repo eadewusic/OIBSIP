@@ -84,3 +84,8 @@ If you have any questions, feedback, or collaboration requests, please feel free
 ## Acknowledgements
 
 This project is a simple yet effective tool to help users understand their BMI and its classification. It is intended for educational purposes and should not be used as a substitute for professional medical advice.
+
+Below are the list of resources I used for this project, in APA7 Citation style:
+
+- Calculator.net. (2019). BMI Calculator. Calculator.net. [https://www.calculator.net/bmi-calculator.html](https://www.calculator.net/bmi-calculator.html)
+- Wikipedia. (2024, July 10). Body mass index. Wikipedia. [https://en.wikipedia.org/wiki/Body_mass_index#Categories](https://en.wikipedia.org/wiki/Body_mass_index#Categories)
