@@ -75,7 +75,7 @@ If you would like to contribute to this project, please fork the repository and 
 ## Demo Video
 
 - [YouTube](https://youtu.be/WGevpQAsOmk)
-- [TikTok]()
+- [TikTok](https://vm.tiktok.com/ZMrmcw6MS/)
 
 ## Contact
 
